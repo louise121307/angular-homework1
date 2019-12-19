@@ -5,15 +5,16 @@ export class Todo {
 
   constructor(title: string, completed?: boolean) {
     this.title = title || '';
-    this.title = this.title.substr(0, 20);
-    if (typeof completed === 'boolean') 
+ //   this.title = this.title.substr(0, 20);
+    if (typeof completed === 'boolean') {
       this.completed = completed;
+    }
   }
 
   getTitle(): string {
     return this.title;
   }
- 
+
   getCompleted(): boolean {
     return this.completed;
   }
