@@ -2,7 +2,6 @@ export class Todo {
 
   private title = '';
   private completed = false;
-  private editMode = false;
 
   constructor(title: string) {
     this.title = title || '';
@@ -12,16 +11,12 @@ export class Todo {
     return this.completed;
   }
 
-  get editing(): boolean {
-    return this.editMode;
-  }
-
-  set editable(bl: boolean) {
-    this.editMode = bl;
-  }
-
   getTitle(): string {
     return this.title;
+  }
+
+  getStatus(): string {
+    if (this.completed) { return 'DONE'; } else { return 'OPEN'; }
   }
 
   toggleCompletion(): void {

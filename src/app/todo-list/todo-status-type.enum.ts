@@ -1,5 +1,5 @@
 export enum TodoStatusType {
   All,
-  Active,
-  Completed
+  Open,
+  Done
 }
