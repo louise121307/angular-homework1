@@ -28,11 +28,11 @@
   <section class="main" *ngIf="getAllList().length">
     <ul class="todo-list">
       <li *ngFor="let todo of getList(); let i = index"
-          [class.completed]="todo.done">
+          [class.completed]="todo.getCompleted()">
         <div class="view">
           <input class="toggle" type="checkbox"
               (click)="todo.toggleCompletion()"
-              [checked]="todo.done">
+              [checked]="todo.getCompleted()">
           <label>{{ todo.getTitle() }}</label>
           <div class="status">{{ todo.getStatus() }}</div>
         </div>

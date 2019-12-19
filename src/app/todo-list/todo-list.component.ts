@@ -17,23 +17,22 @@ import { TodoStatusType } from './todo-status-type.enum';
 export class TodoListComponent implements OnInit {
 
   todoStatusType = TodoStatusType;
-
   private status = TodoStatusType.All;
 
   constructor(private todoListService: TodoListService) { }
 
   ngOnInit() {
+    this.todoListService.add('Item 1');
+    this.todoListService.add('Item 2', true);
+    this.todoListService.add('Item 3');
   }
 
   addTodo(inputRef: HTMLInputElement): void {
-
     const todo = inputRef.value.trim();
-
     if (todo) {
       this.todoListService.add(todo);
       inputRef.value = '';
     }
-
   }
 
   getList(): Todo[] {

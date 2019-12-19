@@ -3,24 +3,23 @@ export class Todo {
   private title = '';
   private completed = false;
 
-  constructor(title: string) {
+  constructor(title: string, completed?: boolean) {
     this.title = title || '';
-  }
-
-  get done(): boolean {
-    return this.completed;
+    this.title = this.title.substr(0, 20);
+    if (typeof completed === 'boolean') 
+      this.completed = completed;
   }
 
   getTitle(): string {
     return this.title;
   }
+ 
+  getCompleted(): boolean {
+    return this.completed;
+  }
 
   getStatus(): string {
     if (this.completed) { return 'DONE'; } else { return 'OPEN'; }
-  }
-
-  toggleCompletion(): void {
-    this.completed = !this.completed;
   }
 
   setTitle(title: string): void {
@@ -29,6 +28,10 @@ export class Todo {
 
   setCompleted(completed: boolean): void {
     this.completed = completed;
+  }
+
+  toggleCompletion(): void {
+    this.completed = !this.completed;
   }
 
 }

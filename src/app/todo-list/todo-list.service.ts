@@ -16,14 +16,14 @@ export class TodoListService {
     return this.list;
   }
 
-  add(title: string): void {
-    if (title || title.trim()) {
-      this.list.push(new Todo(title));
-    }
+  getListWithCompleted(completed: boolean): Todo[] {
+    return this.list.filter(todo => todo.getCompleted() === completed);
   }
 
-  getListWithCompleted(completed: boolean): Todo[] {
-    return this.list.filter(todo => todo.done === completed);
+  add(title: string, completed?: boolean): void {
+    if (title || title.trim()) {
+      this.list.push(new Todo(title, completed));
+    }
   }
 
 }
